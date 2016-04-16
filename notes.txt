@@ -1,0 +1,11 @@
+Notes:
+
+Up until now i have learned about the docker engine, images, and containers.
+
+Containers can be ran using:
+
+	docker run -it [image name] [command to be ran after container spawns]
+
+Containers can be killed by typing exit or pressing Ctrl+Q+P on windows.
+
+More notes in Evernote...
