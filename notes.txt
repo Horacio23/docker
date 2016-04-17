@@ -8,4 +8,22 @@ Containers can be ran using:
 
 Containers can be killed by typing exit or pressing Ctrl+Q+P on windows.
 
-More notes in Evernote...
+Containers
+-A running image, like the relationship from class to object
+
+
+Image Layers
+-At the very bottom we have our Base image that holds the bare minimum OS, our rootfs
+-any application or updates to the image done after will just be stacked on top of the base image
+
+How it all works:
+each one of our layer images has their own unique UUID and that ID is saved in the Docker Image plus some of the metadata on how to run the container at runtime. An example would be using the previous image, our docker image tells the docker engine to use an ubuntu OS base image, put the nginx image on top of that, and put the image with the updates on top of that. Then they get combined into a single view.
+
+This is accomplished by union mounts: the ability to put files systems on top of each other.
+
+Important: All combined layer images are read only. When all the layers are combined, a new layer is added at the top where all changes done at runtime are added to via copy on right
+
+Note:
+-When the images get combined into a single view, if there are any conflicts (e.g. changes to the same file ) between two or more of the layer images, the image highest in the stack will win, always.
+-Sometimes a very small manifersto is ran before the base image, but it disappears after the container spawns.
+-Containers are started, not booted, because there is no need to have code to unpack the kernel since we use the existing kernel across all the containers
