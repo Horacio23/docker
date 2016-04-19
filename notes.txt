@@ -2,6 +2,27 @@ Notes:
 
 Up until now i have learned about the docker engine, images, and containers.
 
+NOTES
+Get out of a container Ctrl+P+Q
+
+
+Container Isolation
+Each container has their view of the file system, process trees, and own network stack.
+
+Kernel Namespaces
+The isolation can be done thanks to this. Giving a their own of the same as the described above.
+
+Cgroups
+Allow you to controll processes inside containers to not run amock in the computer
+
+Commands
+     docker run -it ubuntu /bin/bash  --> this command will run an ubuntu image and change the cmd to it
+Steps:
+1-) if we only specify which image we want and not the version, then we will get the latest
+2-) In the -it after run the "i" stands for interactive and the "t" for sudo tty which gives us a way to attach or login to our container
+3-) Tells the container which process to run
+
+
 Containers can be ran using:
 
 	docker run -it [image name] [command to be ran after container spawns]
